@@ -7,6 +7,9 @@ from pydantic import BaseModel
 from typing import List, Optional
 
 from contextlib import asynccontextmanager
+from dotenv import load_dotenv
+
+load_dotenv()
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
