@@ -44,7 +44,7 @@ function Certificates() {
     return (
         <div className="page-content container" style={{ paddingTop: '100px' }}>
             <motion.h2
-                initial={{ opacity:1, y: -20 }}
+                initial={{ opacity: 1, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
                 style={{ marginBottom: '3rem' }}
@@ -60,10 +60,10 @@ function Certificates() {
                 {loading ? <div className="loader"></div> : certifications.map((cert, index) => (
                     <motion.div
                         key={index}
-                        className="glass-panel"
+                        className="glass-panel cert-item"
                         variants={itemVariants}
                         whileHover={{ scale: 1.02, backgroundColor: 'rgba(255, 255, 255, 0.08)' }}
-                        style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}
+                        style={{}}
                     >
                         <div>
                             <h4 style={{ color: 'var(--text-primary)' }}>{cert.name}</h4>

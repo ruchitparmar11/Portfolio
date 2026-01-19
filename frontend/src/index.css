@@ -317,3 +317,93 @@ h6 {
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.05'/%3E%3C/svg%3E");
   opacity: 0.4;
 }
+
+/* Generalized Grid */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.cert-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* --- MOBILE RESPONSIVENESS --- */
+@media (max-width: 768px) {
+
+  /* Visuals - Black Hole Scaling */
+  .accretion-disk {
+    width: 280px !important;
+    height: 280px !important;
+  }
+
+  .black-hole {
+    width: 70px !important;
+    height: 70px !important;
+  }
+
+  /* Typography */
+  h1.glitch-text {
+    font-size: 3rem !important;
+    /* Override inline styles */
+  }
+
+  h2 {
+    font-size: 1.2rem !important;
+  }
+
+  /* Layout */
+  .container {
+    padding: 1rem;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cert-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .glass-panel {
+    padding: 1.5rem;
+  }
+
+  /* Hero Section */
+  .hero-content {
+    width: 100%;
+    padding: 0 1rem;
+  }
+
+  /* Skills Grid */
+  .skills-grid {
+    grid-template-columns: 1fr;
+    /* Single column on mobile */
+  }
+
+  .skill-item {
+    padding: 1rem;
+  }
+
+  /* Prevent horizontal overflow */
+  body,
+  html {
+    overflow-x: hidden;
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  h1.glitch-text {
+    font-size: 2.2rem !important;
+  }
+
+  .glitch-text {
+    font-size: 2.2rem !important;
+  }
+}
