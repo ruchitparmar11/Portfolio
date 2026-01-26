@@ -407,3 +407,202 @@ h6 {
     font-size: 2.2rem !important;
   }
 }
+
+/* --- Project Card Improvements --- */
+.project-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 0;
+  /* Removing padding to let image bleed if needed, but we'll add it back to content */
+  overflow: hidden;
+  /* For image zoom effect */
+}
+
+.project-image-container {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  border-bottom: 1px solid var(--glass-border);
+  position: relative;
+}
+
+.project-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.project-card:hover .project-image {
+  /* transform: scale(1.1); Removed hover zoom */
+}
+
+.project-content {
+  padding: 1.5rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.project-title {
+  color: var(--fission-orange);
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 1.4rem;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.project-description {
+  color: var(--text-primary);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  flex-grow: 1;
+  opacity: 0.9;
+}
+
+.tech-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.tech-tag {
+  background: rgba(255, 85, 0, 0.1);
+  border: 1px solid rgba(255, 85, 0, 0.3);
+  color: var(--fission-orange);
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.75rem;
+  padding: 0.25rem 0.6rem;
+  border-radius: 4px;
+  /* Slight rounding for tech feel */
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+}
+
+.tech-tag:hover {
+  background: var(--fission-orange);
+  color: #000;
+  box-shadow: 0 0 10px var(--fission-orange);
+}
+
+.project-footer {
+  margin-top: auto;
+}
+
+.btn-glow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  color: var(--fission-orange);
+  font-family: 'Jura', sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+  padding: 0.6rem 1.2rem;
+  border: 1px solid var(--fission-orange);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  width: 100%;
+  letter-spacing: 2px;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-glow:hover {
+  background: var(--fission-orange);
+  color: #000;
+  box-shadow: 0 0 20px rgba(255, 85, 0, 0.6);
+}
+
+.btn-glow::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: 0.5s;
+}
+
+.btn-glow:hover::before {
+  left: 100%;
+}
+
+/* --- Page Layout & Mobile Optimizations --- */
+.page-content {
+  padding-top: 100px;
+  padding-bottom: 50px;
+}
+
+@media (max-width: 768px) {
+  .page-content {
+    padding-top: 80px !important;
+    padding-bottom: 40px;
+  }
+
+  .project-card {
+    border-radius: 8px;
+    /* Softer corners on mobile */
+  }
+
+  .project-image-container {
+    height: 180px;
+  }
+
+  .project-content {
+    padding: 1.2rem;
+  }
+
+  .project-title {
+    font-size: 1.3rem;
+  }
+
+  .tech-tags {
+    margin-bottom: 1rem;
+    gap: 0.4rem;
+  }
+
+  .tech-tag {
+    font-size: 0.7rem;
+    padding: 0.2rem 0.5rem;
+  }
+
+  .btn-glow {
+    padding: 0.7rem 1rem;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .page-content {
+    padding-top: 70px !important;
+    padding-left: 1rem;
+    /* Ensure padding inside container is handled */
+    padding-right: 1rem;
+  }
+
+  .container {
+    padding: 0.5rem;
+    /* Maximize width on small screens */
+  }
+
+  .project-image-container {
+    height: 160px;
+  }
+
+  .project-title {
+    font-size: 1.2rem;
+  }
+
+  .project-description {
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+}

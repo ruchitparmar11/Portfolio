@@ -34,8 +34,32 @@ const projects = [
         title: "LeetCode Profile",
         description: "Active problem solver with demonstrated proficiency in Data Structures and Algorithms. Solved complex problems using Java and C++.",
         tech_stack: "Java, C++, Data Structures, Algorithms",
-        image_url: "https://images.unsplash.com/photo-1515879427998-ea609dc777f4?q=80&w=2070&auto=format&fit=crop",
+        image_url: "/images/leetcode_profile.png",
         link: "https://leetcode.com/u/ruchitparmar11/"
+    },
+    {
+        id: 4,
+        title: "Real Estate Platform",
+        description: "Modern real estate marketplace with property listings, advanced filtering, and immersive property details. Built for seamless user experience.",
+        tech_stack: "React, Node.js, MongoDB, Express, TailwindCSS",
+        image_url: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=2073&auto=format&fit=crop",
+        link: "https://real-estate-phi-murex.vercel.app/"
+    },
+    {
+        id: 5,
+        title: "OpsAssistant",
+        description: "Intelligent DevOps assistant for automating infrastructure tasks and monitoring system health. Streamlines operational workflows.",
+        tech_stack: "Python, FastAPI, Shell, Docker, AWS, CI/CD",
+        image_url: "/images/ops_assistant.png",
+        link: "https://github.com/ruchitparmar11/OpsAssitant"
+    },
+    {
+        id: 6,
+        title: "Retain AI",
+        description: "AI-powered customer retention engine. Analyzes user behavior patterns to predict churn and suggest retention strategies.",
+        tech_stack: "Python, FastAPI, Machine Learning, Scikit-learn, Pandas, API",
+        image_url: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop",
+        link: "https://github.com/ruchitparmar11/Retain-AI"
     }
 ];
 

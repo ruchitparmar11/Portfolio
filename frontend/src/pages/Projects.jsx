@@ -8,20 +8,19 @@ const containerVariants = {
     visible: {
         opacity: 1,
         transition: {
-            staggerChildren: 0.1
+            staggerChildren: 0.15
         }
     }
 };
 
 const itemVariants = {
-    hidden: { opacity: 1, scale: 1, filter: 'blur(0px)' },
+    hidden: { opacity: 0, y: 50 },
     visible: {
         opacity: 1,
-        scale: 1,
-        filter: 'blur(0px)',
+        y: 0,
         transition: {
-            duration: 0.8,
-            ease: "circOut"
+            duration: 0.6,
+            ease: "easeOut"
         }
     }
 };
@@ -45,20 +44,28 @@ function Projects() {
         fetchProjects();
     }, []);
 
+    const getButtonText = (link) => {
+        if (!link) return "View Details";
+        if (link.includes("github.com")) return "GitHub Repo";
+        if (link.includes("leetcode.com")) return "View Profile";
+        return "Live Demo";
+    };
+
     return (
-        <div className="page-content container" style={{ paddingTop: '100px' }}>
+        <div className="page-content container">
             <motion.h2
                 initial={{ opacity: 0, x: -50 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8 }}
-                style={{ marginBottom: '3rem' }}
+                style={{ marginBottom: '3rem', fontSize: '2.5rem', color: 'var(--fission-orange)' }}
             >
-                Mission Logs (Projects)
+                Mission Logs
             </motion.h2>
+
             <motion.div
                 className="grid"
                 variants={containerVariants}
-                initial="hidden"
+                initial="visible"
                 animate="visible"
             >
                 {loading ? <div className="loader"></div> : projects.map((project) => (
@@ -66,18 +73,41 @@ function Projects() {
                         key={project.id}
                         className="glass-panel project-card"
                         variants={itemVariants}
-                        whileHover={{
-                            y: -10,
-                            scale: 1.02,
-                            boxShadow: "0 0 25px rgba(255, 170, 51, 0.4)",
-                        }}
-                        style={{ border: "1px solid var(--glass-panel-border)",  marginBottom: '1.5rem'}}
                     >
-                        <h3>{project.title}</h3>
-                        <p className="tech-stack">{project.tech_stack}</p>
-                        <p>{project.description}</p>
-                        {project.image_url && <img src={project.image_url} alt={project.title} style={{ width: '100%', borderRadius: '8px', marginTop: '1rem', maxHeight: '200px', objectFit: 'cover' }} />}
-                        {project.link && <a href={project.link} target="_blank" rel="noopener noreferrer" className="link-text"> View Project</a>}
+                        <div className="project-image-container">
+                            {project.image_url ? (
+                                <img src={project.image_url} alt={project.title} className="project-image" />
+                            ) : (
+                                <div style={{ width: '100%', height: '100%', background: '#222' }}></div>
+                            )}
+                        </div>
+
+                        <div className="project-content">
+                            <h3 className="project-title">{project.title}</h3>
+
+                            <div className="tech-tags">
+                                {project.tech_stack.split(',').map((tech, index) => (
+                                    <span key={index} className="tech-tag">
+                                        {tech.trim()}
+                                    </span>
+                                ))}
+                            </div>
+
+                            <p className="project-description">{project.description}</p>
+
+                            <div className="project-footer">
+                                {project.link && (
+                                    <a
+                                        href={project.link}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="btn-glow"
+                                    >
+                                        {getButtonText(project.link)}
+                                    </a>
+                                )}
+                            </div>
+                        </div>
                     </motion.div>
                 ))}
             </motion.div>
