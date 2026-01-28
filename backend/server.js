@@ -60,6 +60,14 @@ const projects = [
         tech_stack: "Python, FastAPI, Machine Learning, Scikit-learn, Pandas, API",
         image_url: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop",
         link: "https://github.com/ruchitparmar11/Retain-AI"
+    },
+    {
+        id: 7,
+        title: "DocHealth AI",
+        description: "Healthcare document analysis system powered by AI. Faciliates processing of medical records with React Native interface.",
+        tech_stack: "React Native, React.js, AI, Healthcare",
+        image_url: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=2070&auto=format&fit=crop",
+        link: "https://github.com/ruchitparmar11/DocHealthAI"
     }
 ];
 
