@@ -150,10 +150,10 @@ const About = () => {
 
                             <br />
 
-                            <p>
+                            {/* <p>
                                 <span className="prompt">&gt;</span> <strong>CURRENT MISSION:</strong><br />
                                 Exploring the event horizon of <strong>Generative AI</strong> and <strong>Autonomous Agents</strong>. I am constantly upgrading my neural arsenal to stay ahead of the singularity.
-                            </p>
+                            </p> */}
 
                             <p className="typing-cursor">_</p>
                         </div>
