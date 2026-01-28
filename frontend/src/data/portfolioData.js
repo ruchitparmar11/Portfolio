@@ -4,7 +4,7 @@ export const projects = [
         title: "OMNIDOC AI Multimodal System",
         description: "Multimodal AI platform processing 6+ data formats (text, PDF, video). Integrated Gemini 2.0 Pro API & Transformer LLMs. Improved quality by 22%.",
         tech_stack: "Python, Gemini 2.0 Pro, Streamlit, LLMs, MySQL",
-        image_url: "https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=1932&auto=format&fit=crop",
+        image_url: "/images/omnidoc_visual.png",
         link: "https://omnidoc-ai-k09z.onrender.com"
     },
     {
@@ -12,7 +12,7 @@ export const projects = [
         title: "React Native Restaurant App",
         description: "Full-stack ordering app. Reduced latency by 35% and increased engagement by 25%. Custom RESTful APIs with Node.js & MongoDB.",
         tech_stack: "React Native, Node.js, Express.js, MongoDB, REST API",
-        image_url: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=2070&auto=format&fit=crop",
+        image_url: "/images/restaurant_visual.png",
         link: "https://github.com/ruchitparmar11/restaurant-ordering-system"
     },
     {
@@ -20,7 +20,7 @@ export const projects = [
         title: "LeetCode Profile",
         description: "Active problem solver with demonstrated proficiency in Data Structures and Algorithms. Solved complex problems using Java and C++.",
         tech_stack: "Java, C++, Data Structures, Algorithms",
-        image_url: "/images/leetcode_profile.png",
+        image_url: "/images/leetcode_visual.png",
         link: "https://leetcode.com/u/ruchitparmar11/"
     },
     {
@@ -28,7 +28,7 @@ export const projects = [
         title: "Real Estate Platform",
         description: "Modern real estate marketplace with property listings, advanced filtering, and immersive property details. Built for seamless user experience.",
         tech_stack: "React, Node.js, MongoDB, Express, TailwindCSS",
-        image_url: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=2073&auto=format&fit=crop",
+        image_url: "/images/real_estate_visual.png",
         link: "https://real-estate-phi-murex.vercel.app/"
     },
     {
@@ -36,7 +36,7 @@ export const projects = [
         title: "OpsAssistant",
         description: "Intelligent DevOps assistant for automating infrastructure tasks and monitoring system health. Streamlines operational workflows.",
         tech_stack: "Python, FastAPI, Shell, Docker, AWS, CI/CD",
-        image_url: "/images/ops_assistant.png",
+        image_url: "/images/ops_assistant_visual.png",
         link: "https://github.com/ruchitparmar11/OpsAssitant"
     },
     {
@@ -44,7 +44,7 @@ export const projects = [
         title: "Retain AI",
         description: "AI-powered customer retention engine. Analyzes user behavior patterns to predict churn and suggest retention strategies.",
         tech_stack: "Python, FastAPI, Machine Learning, Scikit-learn, Pandas, API",
-        image_url: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop",
+        image_url: "/images/retain_ai_visual.png",
         link: "https://github.com/ruchitparmar11/Retain-AI"
     },
     {
@@ -52,7 +52,7 @@ export const projects = [
         title: "DocHealth AI",
         description: "Healthcare document analysis system powered by AI. Faciliates processing of medical records with React Native interface.",
         tech_stack: "React Native, React.js, AI, Healthcare",
-        image_url: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=2070&auto=format&fit=crop",
+        image_url: "/images/dochealth_visual.png",
         link: "https://github.com/ruchitparmar11/DocHealthAI"
     }
 ];
@@ -95,4 +95,36 @@ export const certifications = [
     { name: "Code Unnati Program", issuer: "Edunate Foundation" },
     { name: "AWS Foundation of Prompt Engineering", issuer: "AWS" },
     { name: "Introduction to Applied Data Science with Python", issuer: "Unknown" }
+];
+
+export const experience = [
+    {
+        id: 1,
+        company: "FinTech",
+        role: "Intern",
+        duration: "2024",
+        description: "Developed a Machine Learning Financial Analysis Project that fetches data from an API, generates insights, stores results in MySQL, and displays them on a real-time web dashboard.",
+        image_url: "/images/fintech_visual.png",
+        certificate: "/docs/Finteck_Internship_Certificate.pdf",
+        details: {
+            projectTitle: "Machine Learning Financial Analysis Project",
+            overview: "This project fetches financial data from an API, performs machine learning analysis to generate insights (Pros/Cons), stores the results in a MySQL database, and displays them on a real-time web dashboard.",
+            features: [
+                "Automated Data Fetching: Retrieves Balance Sheet, P&L, and Cash Flow data.",
+                "ML Analysis: Generates 'Pros' and 'Cons' based on financial metrics.",
+                "Database Storage: Persists all raw data and analysis results.",
+                "Premium Dashboard: Modern, responsive web interface."
+            ],
+            tech_stack: ["Python 3.8+", "MySQL", "Flask", "Machine Learning"]
+        }
+    },
+    {
+        id: 2,
+        company: "J.P. Morgan",
+        role: "Virtual Job Simulation",
+        duration: "2024",
+        description: "Completed practical tasks in software engineering, analyzing data visualization and patching broken code.",
+        image_url: "/images/banking_tech_visual.png",
+        certificate: "/docs/JP_MORGAN.pdf"
+    }
 ];

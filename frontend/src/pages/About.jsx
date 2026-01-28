@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
-import { skills } from '../data/portfolioData';
+import { skills, experience } from '../data/portfolioData';
+import ExperienceCard from '../components/ExperienceCard';
 
 const About = () => {
+    const navigate = useNavigate();
     const [activeCategory, setActiveCategory] = useState('All');
 
     // Group skills by category
@@ -16,7 +18,7 @@ const About = () => {
     return (
         <div className="page-content" style={{ perspective: '1000px', overflowX: 'hidden' }}>
             {/* --- Hero Section --- */}
-            <section className="hero" style={{ height: '90vh', display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative', transformStyle: 'preserve-3d' }}>
+            <section className="hero" style={{ minHeight: 'calc(100vh - 100px)', display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative', transformStyle: 'preserve-3d' }}>
 
                 <motion.div
                     className="hero-content"
@@ -64,24 +66,45 @@ const About = () => {
                             <span className="status-indicator online"></span>
                             <span>SYSTEM ONLINE</span>
                         </div>
-                        <div className="profile-image-placeholder">
+                        <div className="profile-image-placeholder" style={{ padding: 0, overflow: 'hidden' }}>
                             <div className="scan-line"></div>
-                            {/* Placeholder for actual image if user adds one later */}
-                            <div className="avatar-initials">RP</div>
+                            <img
+                                src="/images/commander_profile.png"
+                                alt="Commander Profile"
+                                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                            />
                         </div>
                         <div className="profile-stats">
                             <div className="stat-row">
-                                <span className="stat-label">LOCATION</span>
+                                <span className="stat-label">CODENAME</span>
+                                <span className="stat-value">"NEURAL_ARCHITECT"</span>
+                            </div>
+                            <div className="stat-row">
+                                <span className="stat-label">OPERATING BASE</span>
                                 <span className="stat-value">Vadodara, IN</span>
                             </div>
                             <div className="stat-row">
-                                <span className="stat-label">EXP LEVEL</span>
-                                <span className="stat-value">Lvl. 4</span>
+                                <span className="stat-label">CLEARANCE</span>
+                                <span className="stat-value" style={{ color: 'var(--fission-orange)' }}>LEVEL 5 (TOP SECRET)</span>
                             </div>
                             <div className="stat-row">
-                                <span className="stat-label">SPECIALTY</span>
-                                <span className="stat-value">Neural Nets</span>
+                                <span className="stat-label">PRIMARY CLASS</span>
+                                <span className="stat-value">Full Stack / ML-Ops</span>
                             </div>
+                            <div className="stat-row">
+                                <span className="stat-label">SPECIAL WEAPON</span>
+                                <span className="stat-value">Gemini 2.0 / PyTorch</span>
+                            </div>
+                            <div className="stat-row">
+                                <span className="stat-label">MISSION STATUS</span>
+                                <span className="stat-value" style={{ color: '#00ff00' }}>DEPLOYABLE</span>
+                            </div>
+                        </div>
+
+                        <div style={{ padding: '1.5rem', borderTop: '1px solid var(--glass-border)', textAlign: 'center' }}>
+                            <a href="/docs/Ruchit_Parmar_Resume.pdf" target="_blank" className="btn-glow" style={{ fontSize: '0.8rem', padding: '0.8rem', width: '100%' }}>
+                                [ ACCESS DOSSIER / RESUME ]
+                            </a>
                         </div>
                     </motion.div>
 
@@ -101,18 +124,65 @@ const About = () => {
                         </div>
                         <div className="terminal-body">
                             <p>
-                                <span className="prompt">&gt;</span> Initiating bio-sequence...<br /><br />
-                                I am an <strong>AI & ML Engineer</strong> dedicated to building the next generation of intelligent systems.
-                                By bridging the gap between <strong className="highlight">complex research</strong> and <strong className="highlight">scalable applications</strong>,
-                                I architect solutions that do more than just compute—they <span className="italic">reason</span>.
+                                <span className="prompt">&gt;</span> <strong>IDENTITY CONFIRMED:</strong> Ruchit Parmar<br />
+                                <span className="prompt">&gt;</span> <strong>PRIMARY DIRECTIVE:</strong> Architecting Intelligent Systems<br /><br />
+
+                                I am an <strong>AI & ML Engineer</strong> who operates at the intersection of <strong className="highlight">heavy compute</strong> and <strong className="highlight">human-centric design</strong>.
+                                My expertise isn't just in writing code—it's in engineering <strong>solutions</strong> that bridge the gap between complex research and scalable, real-world applications.
                             </p>
+
+                            <br />
+
                             <p>
-                                <span className="prompt">&gt;</span> Current Operations:<br />
-                                Specializing in <strong>Multimodal RAG Pipelines</strong> (Gemini 2.0), key predictive analytics engines, and high-performance full-stack architectures.
+                                <span className="prompt">&gt;</span> <strong>OPERATIONAL CAPABILITIES:</strong><br />
+                                I possess a relentless drive for <strong>optimization</strong>. Whether fine-tuning Large Language Models (LLMs) for high-precision RAG pipelines or orchestrating full-stack architectures, I ensure every system runs with maximum efficiency.
+                                I don't just build software; I build <strong>engines of innovation</strong> that scale.
                             </p>
+
+                            <br />
+
+                            <p>
+                                <span className="prompt">&gt;</span> <strong>PROTOCOL (WORKING STYLE):</strong><br />
+                                // <strong>Systems-First Mindset:</strong> robust, modular, and future-proof code.<br />
+                                // <strong>Rapid Iteration:</strong> deployment cycles that favor speed without sacrificing stability.<br />
+                                // <strong>Deep Reasoning:</strong> solving algorithmic challenges from first principles.
+                            </p>
+
+                            <br />
+
+                            <p>
+                                <span className="prompt">&gt;</span> <strong>CURRENT MISSION:</strong><br />
+                                Exploring the event horizon of <strong>Generative AI</strong> and <strong>Autonomous Agents</strong>. I am constantly upgrading my neural arsenal to stay ahead of the singularity.
+                            </p>
+
                             <p className="typing-cursor">_</p>
                         </div>
                     </motion.div>
+                </div>
+            </section>
+
+            {/* --- Experience Section --- */}
+            <section className="container about-section">
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    style={{ marginBottom: '3rem', textAlign: 'center' }}
+                >
+                    <Link to="/experience" style={{ textDecoration: 'none' }}>
+                        <h2 className="section-title" style={{ transition: 'color 0.3s', cursor: 'pointer', display: 'inline-block' }}
+                            onMouseOver={(e) => e.target.style.color = 'var(--quantum-white)'}
+                            onMouseOut={(e) => e.target.style.color = 'var(--fission-orange)'}
+                        >
+                            Professional Experience 🔗
+                        </h2>
+                    </Link>
+                </motion.div>
+
+                <div className="projects-container">
+                    {experience.map((exp, index) => (
+                        <ExperienceCard key={exp.id} exp={exp} index={index} />
+                    ))}
                 </div>
             </section>
 
@@ -153,9 +223,10 @@ const About = () => {
                             layout
                             key={skill.id}
                             className="tech-module"
+                            onClick={() => navigate(`/skill/${skill.id}`)}
                             initial={{ opacity: 0, scale: 0.9 }}
                             animate={{ opacity: 1, scale: 1 }}
-                            whileHover={{ scale: 1.05, borderColor: 'var(--fission-orange)' }}
+                            whileHover={{ scale: 1.05, borderColor: 'var(--fission-orange)', cursor: 'pointer' }}
                         >
                             <div className="module-header">
                                 <span className="module-name">{skill.name}</span>

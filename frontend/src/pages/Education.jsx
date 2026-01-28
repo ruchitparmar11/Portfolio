@@ -3,61 +3,70 @@ import { motion } from 'framer-motion';
 
 import { education } from '../data/portfolioData';
 
-// const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8000";
-
 const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
         opacity: 1,
         transition: {
-            staggerChildren: 0.15
+            staggerChildren: 0.3
         }
     }
 };
 
-const cardVariants = {
-    hidden: { opacity: 1, y: 20 },
+const itemVariants = {
+    hidden: { opacity: 0, x: -20 },
     visible: {
         opacity: 1,
-        y: 0,
-        transition: { duration: 0.8 }
+        x: 0,
+        transition: { duration: 0.6, ease: "easeOut" }
     }
 };
 
 function Education() {
-    const loading = false;
-
-
     return (
         <div className="page-content container" style={{ paddingTop: '100px' }}>
             <motion.h2
-                initial={{ opacity: 0, scale: 0.5 }}
-                animate={{ opacity: 1, scale: 1 }}
+                className="section-title"
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
-                style={{ marginBottom: '3rem' }}
+                style={{ textAlign: 'center', marginBottom: '4rem' }}
             >
-                Flight Training (Education)
+                Flight Path (Education)
             </motion.h2>
+
             <motion.div
-                className="grid"
+                className="timeline-container"
                 variants={containerVariants}
                 initial="hidden"
                 animate="visible"
             >
-                {loading ? <div className="loader"></div> : education.map((edu, index) => (
+                {education.map((edu, index) => (
                     <motion.div
                         key={index}
-                        className="glass-panel"
-                        variants={cardVariants}
-                        style={{ marginBottom: '1.5rem' }}
-                        whileHover={{ x: 10, borderColor: 'var(--accretion-gold)' }}
+                        className="timeline-item"
+                        variants={itemVariants}
                     >
-                        <h3>{edu.degree}</h3>
-                        <p style={{ color: 'var(--accretion-gold)', fontSize: '1.2rem' }}>{edu.institution}</p>
-                        <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '1rem', color: 'var(--text-secondary)' }}>
-                            <span>{edu.year}</span>
-                            <span style={{ color: 'var(--wormhole-blue)' }}>{edu.score}</span>
-                        </div>
+                        {/* Glowing Node on the line */}
+                        <div className={`timeline-node ${index === 0 ? 'active-node' : ''}`}></div>
+
+                        {/* Horizontal Connector */}
+                        <div className="timeline-connector"></div>
+
+                        {/* Content Card */}
+                        <motion.div
+                            className="glass-panel timeline-content"
+                            whileHover={{ scale: 1.02, translateX: 10, borderColor: 'var(--fission-orange)' }}
+                        >
+                            <span className="timeline-year">{edu.year}</span>
+                            <h3 className="timeline-degree">{edu.degree}</h3>
+                            <div className="timeline-institution">{edu.institution}</div>
+
+                            <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginTop: '1rem' }}>
+                                <span style={{ width: '8px', height: '8px', background: 'var(--uranium-glow)', borderRadius: '50%', display: 'inline-block' }}></span>
+                                <span className="timeline-score">{edu.score}</span>
+                            </div>
+                        </motion.div>
                     </motion.div>
                 ))}
             </motion.div>

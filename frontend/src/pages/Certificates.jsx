@@ -3,10 +3,8 @@ import { motion } from 'framer-motion';
 
 import { certifications } from '../data/portfolioData';
 
-// const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8000";
-
-const listVariants = {
-    hidden: { opacity: 1 },
+const containerVariants = {
+    hidden: { opacity: 0 },
     visible: {
         opacity: 1,
         transition: {
@@ -15,55 +13,69 @@ const listVariants = {
     }
 };
 
-const itemVariants = {
-    hidden: { opacity: 1, x: 0 },
+const cardVariants = {
+    hidden: { opacity: 0, y: 20 },
     visible: {
         opacity: 1,
-        x: 0,
-        transition: { duration: 0.6 }
+        y: 0,
+        transition: { duration: 0.5 }
     }
 };
 
 function Certificates() {
-    const loading = false;
-
-
     return (
         <div className="page-content container" style={{ paddingTop: '100px' }}>
             <motion.h2
-                initial={{ opacity: 1, y: -20 }}
+                className="section-title"
+                initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}
-                style={{ marginBottom: '3rem' }}
+                transition={{ duration: 0.8 }}
+                style={{ textAlign: 'center', marginBottom: '1rem' }}
             >
-                Specialized Training (Certifications)
+                Declassified Documents
             </motion.h2>
+
+            <motion.p
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.4 }}
+                style={{ textAlign: 'center', color: 'var(--text-secondary)', marginBottom: '3rem', fontFamily: 'Share Tech Mono' }}
+            >
+                // AUTHORIZED PERSONNEL ONLY //
+            </motion.p>
+
             <motion.div
-                className="grid"
-                variants={listVariants}
+                className="vault-grid"
+                variants={containerVariants}
                 initial="hidden"
                 animate="visible"
             >
-                {loading ? <div className="loader"></div> : certifications.map((cert, index) => (
+                {certifications.map((cert, index) => (
                     <motion.div
                         key={index}
-                        className="glass-panel cert-item"
-                        variants={itemVariants}
-                        whileHover={{ scale: 1.02, backgroundColor: 'rgba(255, 255, 255, 0.08)' }}
-                        style={{}}
+                        className="doc-folder"
+                        variants={cardVariants}
+                        whileHover={{ y: -5 }}
                     >
-                        <div>
-                            <h4 style={{ color: 'var(--text-primary)' }}>{cert.name}</h4>
-                            <p style={{ fontSize: '0.9rem', color: 'var(--wormhole-blue)', marginTop: '0.5rem' }}>{cert.issuer}</p>
+                        <div className="doc-header">
+                            <div className="doc-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--text-secondary)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                    <polyline points="14 2 14 8 20 8"></polyline>
+                                    <line x1="16" y1="13" x2="8" y2="13"></line>
+                                    <line x1="16" y1="17" x2="8" y2="17"></line>
+                                    <polyline points="10 9 9 9 8 9"></polyline>
+                                </svg>
+                            </div>
+                            <span className="doc-status">VERIFIED</span>
                         </div>
-                        <motion.div
-                            initial={{ scale: 0 }}
-                            animate={{ scale: 1 }}
-                            transition={{ delay: 0.5 + (index * 0.1), type: "spring" }}
-                            style={{ color: 'var(--accretion-gold)', border: '1px solid var(--accretion-gold)', padding: '0.2rem 0.5rem', borderRadius: '4px', fontSize: '0.8rem' }}
-                        >
-                            Verified
-                        </motion.div>
+                        <div className="doc-body">
+                            <h3 className="doc-title">{cert.name}</h3>
+                            <p className="doc-issuer">ISSUER: {cert.issuer}</p>
+
+                            {/* Decorative Stamp */}
+                            <div className="stamp">APP</div>
+                        </div>
                     </motion.div>
                 ))}
             </motion.div>

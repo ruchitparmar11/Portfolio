@@ -11,6 +11,7 @@ function Navbar() {
   const navLinks = [
     { path: '/', label: 'ABOUT' },
     { path: '/projects', label: 'PROJECTS' },
+    { path: '/experience', label: 'EXPERIENCE' },
     { path: '/education', label: 'EDUCATION' },
     { path: '/certificates', label: 'CERTIFICATES' },
     { path: '/contact', label: 'HIRE ME', highlight: true },

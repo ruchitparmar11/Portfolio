@@ -8,6 +8,7 @@ import About from './pages/About';
 import Projects from './pages/Projects';
 import Education from './pages/Education';
 import Certificates from './pages/Certificates';
+import Experience from './pages/Experience';
 import SkillDetail from './pages/SkillDetail';
 import Contact from './pages/Contact';
 
@@ -24,6 +25,7 @@ function App() {
           <Route path="/" element={<PageTransition><About /></PageTransition>} />
           <Route path="/projects" element={<PageTransition><Projects /></PageTransition>} />
           <Route path="/education" element={<PageTransition><Education /></PageTransition>} />
+          <Route path="/experience" element={<PageTransition><Experience /></PageTransition>} />
           <Route path="/certificates" element={<PageTransition><Certificates /></PageTransition>} />
           <Route path="/skill/:id" element={<PageTransition><SkillDetail /></PageTransition>} />
           <Route path="/contact" element={<PageTransition><Contact /></PageTransition>} />
