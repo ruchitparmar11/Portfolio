@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 
-const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8000";
+import { projects } from '../data/portfolioData';
+
+// const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8000";
 
 const containerVariants = {
     hidden: { opacity: 0 },
@@ -26,23 +28,8 @@ const itemVariants = {
 };
 
 function Projects() {
-    const [projects, setProjects] = useState([]);
-    const [loading, setLoading] = useState(true);
+    const loading = false; // Data is now static, so no loading state needed
 
-    useEffect(() => {
-        const fetchProjects = async () => {
-            try {
-                const res = await fetch(`${API_URL}/projects`);
-                const data = await res.json();
-                setProjects(data);
-            } catch (err) {
-                console.error(err);
-            } finally {
-                setLoading(false);
-            }
-        };
-        fetchProjects();
-    }, []);
 
     const getButtonText = (link) => {
         if (!link) return "View Details";

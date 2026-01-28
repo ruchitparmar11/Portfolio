@@ -2,26 +2,13 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
-const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8000";
+import { skills } from '../data/portfolioData';
+
+// const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8000";
 
 function About() {
-    const [skills, setSkills] = useState([]);
-    const [loading, setLoading] = useState(true);
+    const loading = false;
 
-    useEffect(() => {
-        const fetchSkills = async () => {
-            try {
-                const res = await fetch(`${API_URL}/skills`);
-                const data = await res.json();
-                setSkills(data);
-            } catch (err) {
-                console.error(err);
-            } finally {
-                setLoading(false);
-            }
-        };
-        fetchSkills();
-    }, []);
 
     return (
         <div className="page-content" style={{ perspective: '1000px', overflowX: 'hidden' }}>

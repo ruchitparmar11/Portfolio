@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 
-const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8000";
+import { certifications } from '../data/portfolioData';
+
+// const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8000";
 
 const listVariants = {
     hidden: { opacity: 1 },
@@ -23,23 +25,8 @@ const itemVariants = {
 };
 
 function Certificates() {
-    const [certifications, setCertifications] = useState([]);
-    const [loading, setLoading] = useState(true);
+    const loading = false;
 
-    useEffect(() => {
-        const fetchCertifications = async () => {
-            try {
-                const res = await fetch(`${API_URL}/certifications`);
-                const data = await res.json();
-                setCertifications(data);
-            } catch (err) {
-                console.error(err);
-            } finally {
-                setLoading(false);
-            }
-        };
-        fetchCertifications();
-    }, []);
 
     return (
         <div className="page-content container" style={{ paddingTop: '100px' }}>

@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 
-const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8000";
+import { education } from '../data/portfolioData';
+
+// const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8000";
 
 const containerVariants = {
     hidden: { opacity: 0 },
@@ -23,25 +25,8 @@ const cardVariants = {
 };
 
 function Education() {
-    const [education, setEducation] = useState([]);
-    const [loading, setLoading] = useState(true);
+    const loading = false;
 
-    useEffect(() => {
-        const fetchEducation = async () => {
-            try {
-                console.log("Fetching education data...");
-                const res = await fetch(`${API_URL}/education`);
-                const data = await res.json();
-                console.log("Education data received:", data);
-                setEducation(data);
-            } catch (err) {
-                console.error("Error fetching education:", err);
-            } finally {
-                setLoading(false);
-            }
-        };
-        fetchEducation();
-    }, []);
 
     return (
         <div className="page-content container" style={{ paddingTop: '100px' }}>

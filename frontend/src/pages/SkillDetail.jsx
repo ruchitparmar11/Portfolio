@@ -151,16 +151,9 @@ import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
-const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8000";
+import { skills as skillsData, projects as projectsData } from '../data/portfolioData';
 
-async function safeFetchJson(url) {
-    const res = await fetch(url);
-    if (!res.ok) {
-        const text = await res.text().catch(() => '');
-        throw new Error(`${res.status} ${res.statusText} ${text ? '- ' + text : ''}`);
-    }
-    return res.json();
-}
+// const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8000";
 
 const SkillDetail = () => {
     const { id } = useParams();
@@ -170,17 +163,13 @@ const SkillDetail = () => {
     const [error, setError] = useState(null);
 
     useEffect(() => {
-        const fetchData = async () => {
+        const fetchData = () => {
             try {
-                // Fetch all skills to find the one matching the ID
-                const skillsData = await safeFetchJson(`${API_URL}/skills`);
-                const foundSkill = Array.isArray(skillsData) ? skillsData.find(s => s.id === parseInt(id)) : null;
+                // Find the skill
+                const foundSkill = skillsData.find(s => s.id === parseInt(id));
                 setSkill(foundSkill);
 
-                // Fetch projects to find related work
-                const projectsData = await safeFetchJson(`${API_URL}/projects`);
-
-                if (foundSkill && Array.isArray(projectsData)) {
+                if (foundSkill) {
                     // Split skill name by '/' to handle composite skills like "MongoDB / MySQL"
                     const skillTerms = foundSkill.name.split('/').map(term => term.trim().toLowerCase());
 
@@ -196,7 +185,7 @@ const SkillDetail = () => {
                 }
 
             } catch (err) {
-                console.error("Error fetching data:", err);
+                console.error("Error processing data:", err);
                 setError(err.message || 'Unknown error');
             } finally {
                 setLoading(false);
