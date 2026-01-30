@@ -37,7 +37,7 @@ export const projects = [
         description: "Intelligent DevOps assistant for automating infrastructure tasks and monitoring system health. Streamlines operational workflows.",
         tech_stack: "Python, FastAPI, Shell, Docker, AWS, CI/CD",
         image_url: "/images/ops_assistant_visual.png",
-        link: "https://github.com/ruchitparmar11/OpsAssitant"
+        link: "https://ops-assitant.vercel.app/"
     },
     {
         id: 6,
@@ -45,7 +45,7 @@ export const projects = [
         description: "AI-powered customer retention engine. Analyzes user behavior patterns to predict churn and suggest retention strategies.",
         tech_stack: "Python, FastAPI, Machine Learning, Scikit-learn, Pandas, API",
         image_url: "/images/retain_ai_visual.png",
-        link: "https://github.com/ruchitparmar11/Retain-AI"
+        link: "https://retain-ai-mu.vercel.app/"
     },
     {
         id: 7,
