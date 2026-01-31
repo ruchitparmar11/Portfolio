@@ -1,12 +1,17 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useSound } from '../context/SoundContext';
 
 function Navbar() {
   const location = useLocation();
   const [isOpen, setIsOpen] = useState(false);
+  const { playClick } = useSound();
 
-  const toggleMenu = () => setIsOpen(!isOpen);
+  const toggleMenu = () => {
+    playClick();
+    setIsOpen(!isOpen);
+  };
 
   const navLinks = [
     { path: '/', label: 'ABOUT' },
@@ -35,23 +40,27 @@ function Navbar() {
         background: 'rgba(5, 5, 5, 0.9)',
         backdropFilter: 'blur(10px)'
       }}>
-        <div style={{ fontFamily: 'Orbitron', fontWeight: 'bold', fontSize: '1.5rem', color: 'var(--accretion-gold)', zIndex: 1001 }}>
-          <Link to="/" style={{ textDecoration: 'none', color: 'inherit' }}>RP</Link>
+        <div
+          style={{ fontFamily: 'Orbitron', fontWeight: 'bold', fontSize: '1.5rem', color: 'var(--accretion-gold)', zIndex: 1001, cursor: 'pointer' }}
+        >
+          <Link to="/" onClick={playClick} style={{ textDecoration: 'none', color: 'inherit' }}>RP</Link>
         </div>
 
         {/* Desktop Menu */}
-        <ul className="desktop-menu" style={{ display: 'flex', gap: '2rem', listStyle: 'none' }}>
+        <ul className="desktop-menu" style={{ display: 'flex', gap: '2rem', listStyle: 'none', alignItems: 'center' }}>
           {navLinks.map((link) => (
             <li key={link.path}>
               <Link
                 to={link.path}
                 className={`nav-link ${location.pathname === link.path ? 'active' : ''}`}
                 style={link.highlight ? { border: '1px solid var(--fission-orange)', padding: '0.5rem 1rem' } : {}}
+                onClick={playClick}
               >
                 {link.label}
               </Link>
             </li>
           ))}
+
         </ul>
 
         {/* Mobile Hamburger */}
@@ -90,13 +99,14 @@ function Navbar() {
               <Link
                 key={link.path}
                 to={link.path}
-                onClick={() => setIsOpen(false)}
+                onClick={() => { playClick(); setIsOpen(false); }}
                 className={`nav-link ${location.pathname === link.path ? 'active' : ''}`}
                 style={{ fontSize: '1.5rem' }}
               >
                 {link.label}
               </Link>
             ))}
+
           </motion.div>
         )}
       </AnimatePresence>

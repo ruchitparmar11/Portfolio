@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 
 import { skills, experience } from '../data/portfolioData';
 import ExperienceCard from '../components/ExperienceCard';
+import QuantumDecode from '../components/QuantumDecode';
 
 const About = () => {
     const navigate = useNavigate();
@@ -19,7 +20,6 @@ const About = () => {
         <div className="page-content" style={{ perspective: '1000px', overflowX: 'hidden' }}>
             {/* --- Hero Section --- */}
             <section className="hero" style={{ minHeight: 'calc(100vh - 100px)', display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative', transformStyle: 'preserve-3d' }}>
-
                 <motion.div
                     className="hero-content"
                     initial={{ opacity: 0, scale: 0.8 }}
@@ -33,7 +33,9 @@ const About = () => {
                         animate={{ opacity: 1 }}
                         transition={{ delay: 0.5 }}
                     >
-                        <h1 className="glitch-text" data-text="RUCHIT">RUCHIT PARMAR</h1>
+                        <h1 className="glitch-text">
+                            <QuantumDecode text="RUCHIT PARMAR" interval={40} revealSpeed={1} />
+                        </h1>
                     </motion.div>
 
                     <h2 className="role-subtitle">AI & ML Engineer <span className="separator">|</span> Full Stack Developer</h2>
@@ -53,7 +55,6 @@ const About = () => {
             {/* --- Commander Profile & Bio Section --- */}
             <section className="container about-section">
                 <div className="profile-grid">
-
                     {/* Left Column: Commander Profile Card */}
                     <motion.div
                         className="commander-profile"
@@ -126,35 +127,23 @@ const About = () => {
                             <p>
                                 <span className="prompt">&gt;</span> <strong>IDENTITY CONFIRMED:</strong> Ruchit Parmar<br />
                                 <span className="prompt">&gt;</span> <strong>PRIMARY DIRECTIVE:</strong> Architecting Intelligent Systems<br /><br />
-
                                 I am an <strong>AI & ML Engineer</strong> who operates at the intersection of <strong className="highlight">heavy compute</strong> and <strong className="highlight">human-centric design</strong>.
                                 My expertise isn't just in writing code—it's in engineering <strong>solutions</strong> that bridge the gap between complex research and scalable, real-world applications.
                             </p>
-
                             <br />
-
                             <p>
                                 <span className="prompt">&gt;</span> <strong>OPERATIONAL CAPABILITIES:</strong><br />
                                 I possess a relentless drive for <strong>optimization</strong>. Whether fine-tuning Large Language Models (LLMs) for high-precision RAG pipelines or orchestrating full-stack architectures, I ensure every system runs with maximum efficiency.
                                 I don't just build software; I build <strong>engines of innovation</strong> that scale.
                             </p>
-
                             <br />
-
                             <p>
                                 <span className="prompt">&gt;</span> <strong>PROTOCOL (WORKING STYLE):</strong><br />
                                 // <strong>Systems-First Mindset:</strong> robust, modular, and future-proof code.<br />
                                 // <strong>Rapid Iteration:</strong> deployment cycles that favor speed without sacrificing stability.<br />
                                 // <strong>Deep Reasoning:</strong> solving algorithmic challenges from first principles.
                             </p>
-
                             <br />
-
-                            {/* <p>
-                                <span className="prompt">&gt;</span> <strong>CURRENT MISSION:</strong><br />
-                                Exploring the event horizon of <strong>Generative AI</strong> and <strong>Autonomous Agents</strong>. I am constantly upgrading my neural arsenal to stay ahead of the singularity.
-                            </p> */}
-
                             <p className="typing-cursor">_</p>
                         </div>
                     </motion.div>

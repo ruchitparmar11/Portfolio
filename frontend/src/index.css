@@ -91,18 +91,72 @@ h6 {
 
 /* Visuals */
 .glass-panel {
-  background: rgba(10, 10, 10, 0.7);
-  backdrop-filter: blur(5px);
+  background: rgba(10, 10, 10, 0.75);
+  backdrop-filter: blur(8px);
   border: 1px solid var(--glass-border);
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
   padding: 2rem;
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  position: relative;
+  overflow: hidden;
+}
+
+/* CRT Scanlines */
+.glass-panel::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(0deg,
+      transparent,
+      transparent 2px,
+      rgba(255, 85, 0, 0.03) 3px);
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Holo Sheen */
+.glass-panel::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -150%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(115deg,
+      transparent 20%,
+      rgba(255, 255, 255, 0.05) 40%,
+      rgba(255, 85, 0, 0.1) 50%,
+      rgba(255, 255, 255, 0.05) 60%,
+      transparent 80%);
+  transform: skewX(-20deg);
+  pointer-events: none;
+  z-index: 3;
+}
+
+.glass-panel:hover::after {
+  animation: holoSheen 0.8s ease-in-out forwards;
 }
 
 .glass-panel:hover {
   border-color: var(--fission-orange);
-  box-shadow: 0 0 30px rgba(255, 85, 0, 0.15);
+  box-shadow:
+    -2px 0 10px rgba(255, 0, 0, 0.1),
+    2px 0 10px rgba(0, 255, 255, 0.1),
+    0 0 30px rgba(255, 85, 0, 0.2);
   transform: translateY(-2px);
+}
+
+@keyframes holoSheen {
+  0% {
+    left: -150%;
+  }
+
+  100% {
+    left: 150%;
+  }
 }
 
 /* Typography & Glitch Updates */
@@ -146,6 +200,7 @@ h6 {
   letter-spacing: 2px;
 }
 
+/* Atomic Visuals */
 /* Atomic Visuals */
 .gargantua-visual {
   /* Retasked as Atomic Nucleus */
@@ -619,9 +674,9 @@ h6 {
 .project-feature {
   display: flex;
   align-items: stretch;
-  background: rgba(10, 10, 10, 0.6);
+  background: rgba(10, 10, 10, 0.75);
   border: 1px solid var(--glass-border);
-  backdrop-filter: blur(5px);
+  backdrop-filter: blur(8px);
   min-height: 400px;
   transition: all 0.4s ease;
   position: relative;
@@ -630,7 +685,47 @@ h6 {
 
 .project-feature:hover {
   border-color: var(--fission-orange);
-  box-shadow: 0 0 30px rgba(255, 85, 0, 0.1);
+  box-shadow:
+    -2px 0 15px rgba(255, 0, 0, 0.1),
+    2px 0 15px rgba(0, 255, 255, 0.1),
+    0 0 40px rgba(255, 85, 0, 0.15);
+}
+
+.project-feature::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(0deg,
+      transparent,
+      transparent 2px,
+      rgba(255, 85, 0, 0.03) 3px);
+  pointer-events: none;
+  z-index: 2;
+}
+
+.project-feature::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -150%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(115deg,
+      transparent 20%,
+      rgba(255, 255, 255, 0.05) 40%,
+      rgba(255, 85, 0, 0.1) 50%,
+      rgba(255, 255, 255, 0.05) 60%,
+      transparent 80%);
+  transform: skewX(-20deg);
+  pointer-events: none;
+  z-index: 3;
+}
+
+.project-feature:hover::after {
+  animation: holoSheen 1s ease-in-out forwards;
 }
 
 .project-feature.reversed {
@@ -1135,6 +1230,7 @@ h6 {
     padding: 150px 0 50px 0;
   }
 }
+
 /* --- Flight Path Timeline (Education) --- */
 .timeline-container {
   position: relative;
@@ -1149,14 +1245,14 @@ h6 {
   position: absolute;
   top: 0;
   bottom: 0;
-  left: 30px; /* Line position */
+  left: 30px;
+  /* Line position */
   width: 2px;
-  background: repeating-linear-gradient(to bottom, 
-      var(--fission-orange) 0, 
-      var(--fission-orange) 10px, 
-      transparent 10px, 
-      transparent 20px
-  );
+  background: repeating-linear-gradient(to bottom,
+      var(--fission-orange) 0,
+      var(--fission-orange) 10px,
+      transparent 10px,
+      transparent 20px);
   opacity: 0.5;
   z-index: 0;
 }
@@ -1164,13 +1260,15 @@ h6 {
 .timeline-item {
   position: relative;
   margin-bottom: 4rem;
-  padding-left: 80px; /* Space for line and connector */
+  padding-left: 80px;
+  /* Space for line and connector */
 }
 
 /* The Glowing Node */
 .timeline-node {
   position: absolute;
-  left: 21px; /* Centered on the 30px line (30 + 1 - 10) */
+  left: 21px;
+  /* Centered on the 30px line (30 + 1 - 10) */
   top: 0;
   width: 20px;
   height: 20px;
@@ -1183,8 +1281,8 @@ h6 {
 }
 
 .timeline-node.active-node {
-   background: var(--fission-orange);
-   box-shadow: 0 0 20px var(--fission-orange);
+  background: var(--fission-orange);
+  box-shadow: 0 0 20px var(--fission-orange);
 }
 
 .timeline-item:hover .timeline-node {
@@ -1221,21 +1319,21 @@ h6 {
 }
 
 .timeline-degree {
-    font-size: 1.5rem;
-    color: var(--quantum-white);
-    margin-bottom: 0.5rem;
+  font-size: 1.5rem;
+  color: var(--quantum-white);
+  margin-bottom: 0.5rem;
 }
 
 .timeline-institution {
-    color: var(--text-secondary);
-    font-family: 'Share Tech Mono', monospace;
-    font-size: 1.1rem;
-    margin-bottom: 0.5rem;
+  color: var(--text-secondary);
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
 }
 
 .timeline-score {
-    color: var(--uranium-glow);
-    font-weight: bold;
+  color: var(--uranium-glow);
+  font-weight: bold;
 }
 
 
@@ -1254,15 +1352,15 @@ h6 {
   padding: 0;
   transition: all 0.3s ease;
   overflow: hidden;
-  clip-path: polygon(
-    0 0, 
-    30% 0, 
-    35% 10px, 
-    100% 10px, 
-    100% 100%, 
-    0 100%
-  ); /* Folder Tab Shape */
-  margin-top: 10px; /* Space for the tab effect to be visible if we did negative margins, but here just sizing */
+  clip-path: polygon(0 0,
+      30% 0,
+      35% 10px,
+      100% 10px,
+      100% 100%,
+      0 100%);
+  /* Folder Tab Shape */
+  margin-top: 10px;
+  /* Space for the tab effect to be visible if we did negative margins, but here just sizing */
 }
 
 /* Better Folder Shape via pseudo-element */
@@ -1352,27 +1450,27 @@ h6 {
   .timeline-container {
     padding: 1rem 0;
   }
-  
+
   .timeline-container::before {
     left: 20px;
   }
-  
+
   .timeline-node {
-    left: 11px; /* 20 + 1 - 10 */
+    left: 11px;
+    /* 20 + 1 - 10 */
   }
-  
+
   .timeline-connector {
     left: 22px;
     width: 20px;
   }
-  
+
   .timeline-item {
     padding-left: 50px;
     margin-bottom: 3rem;
   }
-  
+
   .timeline-degree {
     font-size: 1.2rem;
   }
 }
-

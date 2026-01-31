@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 
 import { certifications } from '../data/portfolioData';
+import QuantumDecode from '../components/QuantumDecode';
 
 const containerVariants = {
     hidden: { opacity: 0 },
@@ -32,7 +33,7 @@ function Certificates() {
                 transition={{ duration: 0.8 }}
                 style={{ textAlign: 'center', marginBottom: '1rem' }}
             >
-                Declassified Documents
+                <QuantumDecode text="Declassified Documents" interval={30} revealSpeed={2} />
             </motion.h2>
 
             <motion.p

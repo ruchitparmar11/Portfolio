@@ -5,10 +5,47 @@ export const projects = [
         description: "Multimodal AI platform processing 6+ data formats (text, PDF, video). Integrated Gemini 2.0 Pro API & Transformer LLMs. Improved quality by 22%.",
         tech_stack: "Python, Gemini 2.0 Pro, Streamlit, LLMs, MySQL",
         image_url: "/images/omnidoc_visual.png",
-        link: "https://omnidoc-ai-k09z.onrender.com"
+        link: "https://github.com/ruchitparmar11/OMNIDOC-AI",
+        live_link: "https://omnidoc-ai-k09z.onrender.com"
     },
     {
         id: 2,
+        title: "OpsAssistant",
+        description: "Intelligent DevOps assistant for automating infrastructure tasks and monitoring system health. Streamlines operational workflows.",
+        tech_stack: "Python, FastAPI, Shell, Docker, AWS, CI/CD",
+        image_url: "/images/ops_assistant_visual.png",
+        link: "https://github.com/ruchitparmar11/OpsAssitant",
+        live_link: "https://ops-assitant.vercel.app/"
+    },
+    {
+        id: 3,
+        title: "Retain AI",
+        description: "AI-powered customer retention engine. Analyzes user behavior patterns to predict churn and suggest retention strategies.",
+        tech_stack: "Python, FastAPI, Machine Learning, Scikit-learn, Pandas, API",
+        image_url: "/images/retain_ai_visual.png",
+        link: "https://github.com/ruchitparmar11/Retain-AI",
+        live_link: "https://retain-ai-mu.vercel.app/"
+    },
+    {
+        id: 4,
+        title: "DocHealth AI",
+        description: "Healthcare document analysis system powered by AI. Faciliates processing of medical records with React Native interface.",
+        tech_stack: "React Native, React.js, AI, Healthcare",
+        image_url: "/images/dochealth_visual.png",
+        link: "https://github.com/ruchitparmar11/DocHealthAI",
+        live_link: "https://doc-health-ai.vercel.app/"
+    },
+    {
+        id: 5,
+        title: "Real Estate Platform",
+        description: "Modern real estate marketplace with property listings, advanced filtering, and immersive property details. Built for seamless user experience.",
+        tech_stack: "React, Node.js, MongoDB, Express, TailwindCSS",
+        image_url: "/images/real_estate_visual.png",
+        link: "https://github.com/ruchitparmar11/Real_Estate-",
+        live_link: "https://real-estate-phi-murex.vercel.app/"
+    },
+    {
+        id: 6,
         title: "React Native Restaurant App",
         description: "Full-stack ordering app. Reduced latency by 35% and increased engagement by 25%. Custom RESTful APIs with Node.js & MongoDB.",
         tech_stack: "React Native, Node.js, Express.js, MongoDB, REST API",
@@ -16,44 +53,12 @@ export const projects = [
         link: "https://github.com/ruchitparmar11/restaurant-ordering-system"
     },
     {
-        id: 3,
+        id: 7,
         title: "LeetCode Profile",
         description: "Active problem solver with demonstrated proficiency in Data Structures and Algorithms. Solved complex problems using Java and C++.",
         tech_stack: "Java, C++, Data Structures, Algorithms",
         image_url: "/images/leetcode_visual.png",
         link: "https://leetcode.com/u/ruchitparmar11/"
-    },
-    {
-        id: 4,
-        title: "Real Estate Platform",
-        description: "Modern real estate marketplace with property listings, advanced filtering, and immersive property details. Built for seamless user experience.",
-        tech_stack: "React, Node.js, MongoDB, Express, TailwindCSS",
-        image_url: "/images/real_estate_visual.png",
-        link: "https://real-estate-phi-murex.vercel.app/"
-    },
-    {
-        id: 5,
-        title: "OpsAssistant",
-        description: "Intelligent DevOps assistant for automating infrastructure tasks and monitoring system health. Streamlines operational workflows.",
-        tech_stack: "Python, FastAPI, Shell, Docker, AWS, CI/CD",
-        image_url: "/images/ops_assistant_visual.png",
-        link: "https://ops-assitant.vercel.app/"
-    },
-    {
-        id: 6,
-        title: "Retain AI",
-        description: "AI-powered customer retention engine. Analyzes user behavior patterns to predict churn and suggest retention strategies.",
-        tech_stack: "Python, FastAPI, Machine Learning, Scikit-learn, Pandas, API",
-        image_url: "/images/retain_ai_visual.png",
-        link: "https://retain-ai-mu.vercel.app/"
-    },
-    {
-        id: 7,
-        title: "DocHealth AI",
-        description: "Healthcare document analysis system powered by AI. Faciliates processing of medical records with React Native interface.",
-        tech_stack: "React Native, React.js, AI, Healthcare",
-        image_url: "/images/dochealth_visual.png",
-        link: "https://github.com/ruchitparmar11/DocHealthAI"
     }
 ];
 

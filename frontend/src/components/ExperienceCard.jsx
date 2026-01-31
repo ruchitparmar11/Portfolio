@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useSound } from '../context/SoundContext';
 
 const ExperienceCard = ({ exp, index }) => {
     const [isExpanded, setIsExpanded] = useState(false);
+    const { playClick } = useSound();
 
     return (
         <motion.div
@@ -54,6 +56,7 @@ const ExperienceCard = ({ exp, index }) => {
                             rel="noopener noreferrer"
                             className="feature-link"
                             style={{ fontSize: '0.9rem' }}
+                            onClick={playClick}
                         >
                             Download Doc &darr;
                         </a>
@@ -61,7 +64,7 @@ const ExperienceCard = ({ exp, index }) => {
 
                     {exp.details && (
                         <button
-                            onClick={() => setIsExpanded(!isExpanded)}
+                            onClick={() => { playClick(); setIsExpanded(!isExpanded); }}
                             className="feature-link"
                             style={{
                                 background: 'transparent',

@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-
 import { projects } from '../data/portfolioData';
+import QuantumDecode from '../components/QuantumDecode';
+import { useSound } from '../context/SoundContext';
 
 // const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8000";
 
@@ -29,7 +30,7 @@ const itemVariants = {
 
 function Projects() {
     const loading = false; // Data is now static, so no loading state needed
-
+    const { playClick } = useSound();
 
     const getButtonText = (link) => {
         if (!link) return "View Details";
@@ -46,7 +47,7 @@ function Projects() {
                 transition={{ duration: 0.8 }}
                 style={{ marginBottom: '3rem', fontSize: '2.5rem', color: 'var(--fission-orange)' }}
             >
-                Mission Logs
+                <QuantumDecode text="Mission Logs" interval={30} revealSpeed={2} />
             </motion.h2>
 
             <motion.div
@@ -84,16 +85,30 @@ function Projects() {
 
                             <p className="feature-description">{project.description}</p>
 
-                            {project.link && (
-                                <a
-                                    href={project.link}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="feature-link"
-                                >
-                                    {getButtonText(project.link)} &rarr;
-                                </a>
-                            )}
+                            <div style={{ display: 'flex', gap: '1rem', marginTop: '1rem' }}>
+                                {project.link && (
+                                    <a
+                                        href={project.link}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="feature-link"
+                                        onClick={playClick}
+                                    >
+                                        {getButtonText(project.link)} &rarr;
+                                    </a>
+                                )}
+                                {project.live_link && (
+                                    <a
+                                        href={project.live_link}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="feature-link"
+                                        onClick={playClick}
+                                    >
+                                        Live Demo &rarr;
+                                    </a>
+                                )}
+                            </div>
                         </div>
                     </motion.div>
                 ))}

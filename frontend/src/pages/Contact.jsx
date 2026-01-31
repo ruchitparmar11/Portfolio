@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import QuantumDecode from '../components/QuantumDecode';
+import { useSound } from '../context/SoundContext';
 
 const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8000";
 
@@ -10,6 +12,7 @@ function Contact() {
         message: ''
     });
     const [status, setStatus] = useState('idle'); // idle, sending, success, error
+    const { playClick } = useSound();
 
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -17,6 +20,7 @@ function Contact() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        playClick(); // Play sound on submit
         setStatus('sending');
         try {
             console.log("Transmitting to uplink:", `${API_URL}/contact`, formData);
@@ -59,7 +63,7 @@ function Contact() {
 
                 <div style={{ padding: '2rem' }}>
                     <h2 style={{ color: 'var(--fission-orange)', textAlign: 'center', marginBottom: '0.5rem', letterSpacing: '4px' }}>
-                        ESTABLISH UPLINK
+                        <QuantumDecode text="ESTABLISH UPLINK" interval={40} revealSpeed={1.5} />
                     </h2>
                     <p style={{ textAlign: 'center', color: 'var(--text-secondary)', fontFamily: 'Share Tech Mono', marginBottom: '2.5rem', fontSize: '0.9rem' }}>
                         SECURE CHANNEL // ENCRYPTION: ENABLED
@@ -95,7 +99,7 @@ function Contact() {
                                     outline: 'none',
                                     transition: 'border-color 0.3s'
                                 }}
-                                onFocus={(e) => e.target.style.borderBottomColor = 'var(--fission-orange)'}
+                                onFocus={(e) => { e.target.style.borderBottomColor = 'var(--fission-orange)'; }}
                                 onBlur={(e) => e.target.style.borderBottomColor = 'var(--text-secondary)'}
                                 placeholder="_"
                             />
@@ -130,7 +134,7 @@ function Contact() {
                                     outline: 'none',
                                     transition: 'border-color 0.3s'
                                 }}
-                                onFocus={(e) => e.target.style.borderBottomColor = 'var(--fission-orange)'}
+                                onFocus={(e) => { e.target.style.borderBottomColor = 'var(--fission-orange)'; }}
                                 onBlur={(e) => e.target.style.borderBottomColor = 'var(--text-secondary)'}
                                 placeholder="_"
                             />
@@ -165,7 +169,7 @@ function Contact() {
                                     outline: 'none',
                                     transition: 'border-color 0.3s'
                                 }}
-                                onFocus={(e) => e.target.style.borderColor = 'var(--fission-orange)'}
+                                onFocus={(e) => { e.target.style.borderColor = 'var(--fission-orange)'; }}
                                 onBlur={(e) => e.target.style.borderColor = 'var(--text-secondary)'}
                                 placeholder="Start typing transmission..."
                             />
@@ -182,6 +186,7 @@ function Contact() {
                                         whileHover={{ backgroundColor: 'rgba(255, 85, 0, 0.1)' }}
                                         whileTap={{ scale: 0.98 }}
                                         disabled={status === 'sending'}
+                                        onClick={playClick}
                                         style={{
                                             width: '100%',
                                             padding: '1rem',

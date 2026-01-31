@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { experience } from '../data/portfolioData';
 import ExperienceCard from '../components/ExperienceCard';
+import QuantumDecode from '../components/QuantumDecode';
 
 const Experience = () => {
     return (
@@ -13,7 +14,7 @@ const Experience = () => {
                 transition={{ duration: 0.5 }}
                 style={{ marginBottom: '3rem' }}
             >
-                Professional Experience
+                <QuantumDecode text="Professional Experience" interval={30} revealSpeed={2} />
             </motion.h2>
 
             <div className="projects-container">
