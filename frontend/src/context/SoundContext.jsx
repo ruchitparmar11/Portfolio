@@ -29,6 +29,31 @@ export const SoundProvider = ({ children }) => {
         };
     }, []);
 
+    // Global Interaction Listener for Mobile/Autoplay Unlock
+    useEffect(() => {
+        const enableAudio = () => {
+            // 1. Resume Audio Context
+            if (audioCtx.current && audioCtx.current.state === 'suspended') {
+                audioCtx.current.resume();
+            }
+
+            // 2. Play Music if paused
+            if (musicRef.current && musicRef.current.paused) {
+                musicRef.current.play().catch(e => console.log("Still waiting for interaction..."));
+            }
+        };
+
+        window.addEventListener('click', enableAudio);
+        window.addEventListener('touchstart', enableAudio);
+        window.addEventListener('keydown', enableAudio);
+
+        return () => {
+            window.removeEventListener('click', enableAudio);
+            window.removeEventListener('touchstart', enableAudio);
+            window.removeEventListener('keydown', enableAudio);
+        };
+    }, []);
+
     const initAudio = () => {
         if (!audioCtx.current) {
             const Ctx = window.AudioContext || window.webkitAudioContext;
