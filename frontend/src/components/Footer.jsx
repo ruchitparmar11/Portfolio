@@ -73,7 +73,13 @@ const Footer = () => {
                     .hide-mobile { display: none; }
                     .cmd-hint { font-size: 0.7rem; font-weight: bold; }
                     .sys-status { font-size: 0.7rem; }
-                    footer { padding: 0.8rem; padding-bottom: max(0.8rem, env(safe-area-inset-bottom)); }
+                    footer { 
+                        position: relative !important; /* unstick from bottom */
+                        bottom: auto !important;
+                        margin-top: auto; /* push to bottom if flex container */
+                        padding: 1rem;
+                        background: rgba(5, 5, 5, 1) !important; /* solid background */
+                    }
                 }
             `}</style>
         </footer>
