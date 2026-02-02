@@ -71,14 +71,16 @@ const Footer = () => {
                 }
                 @media (max-width: 600px) {
                     .hide-mobile { display: none; }
-                    .cmd-hint { font-size: 0.7rem; font-weight: bold; }
-                    .sys-status { font-size: 0.7rem; }
+                    .cmd-hint { font-size: 0.65rem; font-weight: bold; letter-spacing: 0.5px; }
+                    .sys-status { font-size: 0.65rem; }
                     footer { 
-                        position: relative !important; /* unstick from bottom */
-                        bottom: auto !important;
-                        margin-top: auto; /* push to bottom if flex container */
-                        padding: 1rem;
-                        background: rgba(5, 5, 5, 1) !important; /* solid background */
+                        position: fixed !important; /* Laptop style (Fixed) */
+                        bottom: 0 !important;
+                        padding: 0.4rem 0.8rem; /* Very slim padding */
+                        background: rgba(10, 10, 10, 0.85) !important; /* Glass effect */
+                        backdrop-filter: blur(8px);
+                        border-top: 1px solid rgba(255, 85, 0, 0.15);
+                        padding-bottom: max(0.4rem, env(safe-area-inset-bottom)); /* Safe area respect */
                     }
                 }
             `}</style>
