@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 import Navbar from './components/Navbar';
 import StarField from './components/StarField';
+import CursorHUD from './components/CursorHUD';
+import CommandTerminal from './components/CommandTerminal';
+import Footer from './components/Footer';
 import PageTransition from './components/PageTransition';
 import About from './pages/About';
 import Projects from './pages/Projects';
@@ -15,8 +18,14 @@ import Contact from './pages/Contact';
 function App() {
   const location = useLocation();
 
+  // Check for touch device to optionally disable custom cursor logic if needed
+  // (CSS media query handles visibility, but we can prevent rendering too)
+  const isTouch = window.matchMedia("(pointer: coarse)").matches;
+
   return (
     <div className="app-container">
+      {!isTouch && <CursorHUD />}
+      <CommandTerminal />
       <StarField />
       <Navbar />
 
@@ -32,8 +41,7 @@ function App() {
         </Routes>
       </AnimatePresence>
 
-      {/* Footer could go here or in specific pages, let's keep it global */}
-
+      <Footer />
     </div>
   );
 }

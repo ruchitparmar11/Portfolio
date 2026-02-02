@@ -14,7 +14,7 @@ const StarField = () => {
         canvas.height = height;
 
         let stars = [];
-        const numStars = 400; // Dense starfield
+        const numStars = 150; // Optimized for performance
         const centerX = width / 2;
         const centerY = height / 2;
 

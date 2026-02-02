@@ -53,7 +53,7 @@ function Projects() {
             <motion.div
                 className="projects-container"
                 variants={containerVariants}
-                initial="visible"
+                initial="hidden" // Fixed: Was "visible", which prevented entrance animation
                 animate="visible"
             >
                 {projects.map((project, index) => (
@@ -61,6 +61,7 @@ function Projects() {
                         key={project.id}
                         className={`project-feature ${index % 2 === 1 ? 'reversed' : ''}`}
                         variants={itemVariants}
+                        whileHover={{ y: -10, transition: { duration: 0.2 } }}
                     >
                         <div className="feature-image-container">
                             {project.image_url ? (

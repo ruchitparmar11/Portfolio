@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import { skills, experience } from '../data/portfolioData';
 import ExperienceCard from '../components/ExperienceCard';
 import QuantumDecode from '../components/QuantumDecode';
+import Typewriter from '../components/Typewriter';
 
 const About = () => {
     const navigate = useNavigate();
@@ -109,6 +110,8 @@ const About = () => {
                         </div>
                     </motion.div>
 
+
+
                     {/* Right Column: Mission Log (Bio) */}
                     <motion.div
                         className="bio-terminal"
@@ -124,27 +127,41 @@ const About = () => {
                             <span className="terminal-title">mission_log.txt</span>
                         </div>
                         <div className="terminal-body">
-                            <p>
+                            <div style={{ marginBottom: '1rem' }}>
                                 <span className="prompt">&gt;</span> <strong>IDENTITY CONFIRMED:</strong> Ruchit Parmar<br />
-                                <span className="prompt">&gt;</span> <strong>PRIMARY DIRECTIVE:</strong> Architecting Intelligent Systems<br /><br />
-                                I am an <strong>AI & ML Engineer</strong> who operates at the intersection of <strong className="highlight">heavy compute</strong> and <strong className="highlight">human-centric design</strong>.
-                                My expertise isn't just in writing code—it's in engineering <strong>solutions</strong> that bridge the gap between complex research and scalable, real-world applications.
+                                <span className="prompt">&gt;</span> <strong>PRIMARY DIRECTIVE:</strong> Architecting Intelligent Systems
+                            </div>
+
+                            <p style={{ minHeight: '80px' }}>
+                                <Typewriter
+                                    text="I am an AI & ML Engineer who operates at the intersection of heavy compute and human-centric design. My expertise isn't just in writing code—it's in engineering solutions that bridge the gap between complex research and scalable, real-world applications."
+                                    speed={15}
+                                    delay={1000}
+                                />
                             </p>
                             <br />
-                            <p>
+                            <p style={{ minHeight: '80px' }}>
                                 <span className="prompt">&gt;</span> <strong>OPERATIONAL CAPABILITIES:</strong><br />
-                                I possess a relentless drive for <strong>optimization</strong>. Whether fine-tuning Large Language Models (LLMs) for high-precision RAG pipelines or orchestrating full-stack architectures, I ensure every system runs with maximum efficiency.
-                                I don't just build software; I build <strong>engines of innovation</strong> that scale.
+                                <Typewriter
+                                    text="I possess a relentless drive for optimization. Whether fine-tuning Large Language Models (LLMs) for high-precision RAG pipelines or orchestrating full-stack architectures, I ensure every system runs with maximum efficiency. I don't just build software; I build engines of innovation that scale."
+                                    speed={15}
+                                    delay={4000} // Start after first block usually finishes
+                                />
                             </p>
                             <br />
-                            <p>
-                                <span className="prompt">&gt;</span> <strong>PROTOCOL (WORKING STYLE):</strong><br />
-                                // <strong>Systems-First Mindset:</strong> robust, modular, and future-proof code.<br />
-                                // <strong>Rapid Iteration:</strong> deployment cycles that favor speed without sacrificing stability.<br />
-                                // <strong>Deep Reasoning:</strong> solving algorithmic challenges from first principles.
-                            </p>
-                            <br />
-                            <p className="typing-cursor">_</p>
+
+                            <motion.div
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                transition={{ delay: 8, duration: 1 }} // Fade in the final list to save time
+                            >
+                                <p>
+                                    <span className="prompt">&gt;</span> <strong>PROTOCOL (WORKING STYLE):</strong><br />
+                                    // <strong>Systems-First Mindset:</strong> robust, modular, and future-proof code.<br />
+                                    // <strong>Rapid Iteration:</strong> deployment cycles that favor speed without sacrificing stability.<br />
+                                    // <strong>Deep Reasoning:</strong> solving algorithmic challenges from first principles.
+                                </p>
+                            </motion.div>
                         </div>
                     </motion.div>
                 </div>
