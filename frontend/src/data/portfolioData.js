@@ -105,6 +105,32 @@ export const certifications = [
 export const experience = [
     {
         id: 1,
+        company: "Rangsoft",
+        role: "Junior AI Engineer",
+        duration: "2026 — Present",
+        description: "Building a ChatGPT-like custom AI solution by fine-tuning LLMs on client-specific datasets for domain-specific Q&A. Developing a full-stack AI application to provide clients with highly accurate, context-aware answers from their own data.",
+        image_url: "/images/rangsoft_visual.png",
+        details: {
+            projectTitle: "Custom AI Chat Application (ChatGPT for Client Data)",
+            overview: "Architecting and developing a production-grade, ChatGPT-like AI platform that ingests client-specific datasets, fine-tunes Large Language Models, and delivers precise domain-specific answers through an intuitive chat interface.",
+            features: [
+                "LLM Fine-Tuning: Training and fine-tuning LLMs on proprietary client datasets for domain-specific Q&A.",
+                "Full-Stack AI App: React frontend with a conversational UI similar to ChatGPT.",
+                "Robust Backend: .NET backend services handling API orchestration and LLM inference pipelines.",
+                "Database Management: Microsoft SQL Server for structured data storage and retrieval.",
+                "Context-Aware Responses: RAG (Retrieval-Augmented Generation) pipeline for accurate, grounded answers."
+            ],
+            structure: [
+                "React (Frontend) — Conversational chat UI",
+                ".NET (Backend) — API services & LLM pipeline",
+                "Microsoft SQL Server — Data storage & management",
+                "LLMs + Fine-Tuning — Domain-specific AI intelligence"
+            ],
+            tech_stack: ["React", ".NET", "Microsoft SQL", "LLMs", "RAG", "Python", "AI/ML"]
+        }
+    },
+    {
+        id: 2,
         company: "FinTech",
         role: "Intern",
         duration: "2025",
@@ -124,7 +150,7 @@ export const experience = [
         }
     },
     {
-        id: 2,
+        id: 3,
         company: "J.P. Morgan",
         role: "Virtual Job Simulation",
         duration: "2025",
