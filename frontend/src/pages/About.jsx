@@ -238,12 +238,8 @@ const About = () => {
                                 <span className="module-name">{skill.name}</span>
                                 <span className="module-cat">{skill.category}</span>
                             </div>
-                            <div className="module-bar-container">
-                                <div className="module-bar" style={{ width: `${skill.proficiency}%` }}></div>
-                            </div>
                             <div className="module-footer">
-                                <span>PROFICIENCY</span>
-                                <span>{skill.proficiency}%</span>
+                                <span>{skill.category}</span>
                             </div>
                         </motion.div>
                     ))}

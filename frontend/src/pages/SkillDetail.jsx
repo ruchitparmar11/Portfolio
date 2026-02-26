@@ -80,16 +80,7 @@ const SkillDetail = () => {
                 <h1 style={{ fontSize: '3rem', color: 'var(--fission-orange)', fontFamily: 'Share Tech Mono' }}>
                     {skill ? <QuantumDecode text={skill.name} interval={40} revealSpeed={2} /> : "LOADING..."}
                 </h1>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginTop: '1rem' }}>
-                    <span style={{ fontSize: '1.2rem', color: 'var(--text-secondary)' }}>Proficiency Level:</span>
-                    <div className="progress-bar" style={{ flexGrow: 1, maxWidth: '400px' }}>
-                        <div
-                            className="progress-fill"
-                            style={{ width: `${skill.proficiency}%`, boxShadow: '0 0 15px var(--fission-orange)' }}
-                        ></div>
-                    </div>
-                    <span style={{ fontFamily: 'Share Tech Mono', color: 'var(--fission-orange)' }}>{skill.proficiency}%</span>
-                </div>
+
                 <p style={{ marginTop: '2rem', fontSize: '1.1rem', lineHeight: '1.6' }}>
                     <strong>Category:</strong> {skill.category}
                 </p>
