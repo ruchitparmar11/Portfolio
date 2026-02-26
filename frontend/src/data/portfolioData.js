@@ -107,7 +107,7 @@ export const experience = [
         id: 1,
         company: "FinTech",
         role: "Intern",
-        duration: "2024",
+        duration: "2025",
         description: "Developed a Machine Learning Financial Analysis Project that fetches data from an API, generates insights, stores results in MySQL, and displays them on a real-time web dashboard.",
         image_url: "/images/fintech_visual.png",
         certificate: "/docs/Finteck_Internship_Certificate.pdf",
@@ -127,7 +127,7 @@ export const experience = [
         id: 2,
         company: "J.P. Morgan",
         role: "Virtual Job Simulation",
-        duration: "2024",
+        duration: "2025",
         description: "Completed practical tasks in software engineering, analyzing data visualization and patching broken code.",
         image_url: "/images/banking_tech_visual.png",
         certificate: "/docs/JP_MORGAN.pdf"
